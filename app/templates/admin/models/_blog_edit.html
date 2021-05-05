@@ -1,0 +1,18 @@
+{% extends 'admin/model/edit.html' %}
+
+{% block body %}
+    <section class="s2">
+        <div class="main-content">
+           <div class="admin-container container-fluid">
+               <div class="admin-header text-md-center page-header">
+                    <h2 class="card-header">Edit {{ admin_view.name }}</h2>
+                </div>
+                <div class="admin-edit-form col-sm-12">
+                    <div>
+                        {{ super() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

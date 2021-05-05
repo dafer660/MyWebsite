@@ -1,0 +1,47 @@
+{%- extends "base.html" %}
+
+{%- block body %}
+    <section class="s2">
+        <div class="main-content">
+
+            <!-- Masthead -->
+            <div class="masthead bg-light">
+                {% include "main/models/_masthead.html" %}
+            </div>
+
+            <!-- Subnavbar-->
+            <nav class="bd-subnavbar pt-2 pb-3 pb-md-2">
+                <div class="container d-flex align-items-md-center py-2">
+                  <nav class="nav mx-auto">
+                    <a class="text-dark py-1 mr-3 fw-500" href="/">All posts</a>
+                    <a class="text-dark py-1 mr-3" href="/archive/">Archive</a>
+                    <a class="text-dark py-1 mr-3" href="/videos/">Videos</a>
+                    <a class="text-dark py-1" href="/feed.xml">Subscribe</a>
+                  </nav>
+                </div>
+            </nav>
+
+            <!--Carousel-->
+            <div id="indexCarousel" class="carousel slide" data-ride="carousel">
+                <!--Carousel Indicators-->
+                {% include "main/models/_carousel-indicators.html" %}
+
+                <div class="carousel-inner">
+                    <!--Carousel Items-->
+                    {% include "main/models/_carousel-inner.html" %}
+                </div>
+                <a class="carousel-control-prev" href="#indexCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#indexCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+

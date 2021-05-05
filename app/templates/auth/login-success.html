@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% include 'auth/models/_success.html' %}
+{% endblock body %}
+
+{% block tail_js %}
+    <script src="{{ url_for('static', filename='js/redirect.js') }}"></script>
+{% endblock tail_js %}

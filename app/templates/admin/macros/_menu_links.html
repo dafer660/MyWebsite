@@ -1,0 +1,16 @@
+{% macro menu_links(links=None) %}
+    {% if links is none %}
+        {% set links = admin_view.admin.menu_links() %}
+    {% endif %}
+
+    {% for item in links %}
+        {% set class_name = item.get_class_name() %}
+        {% if item.is_accessible() and item.is_visible() %}
+          <li{% if class_name %} class="{{ class_name }}"{% endif %}>
+            <a class="nav-link text-white" href="{{ item.get_url() }}">
+                {{ menu_icon(item) }}{{ item.name }}
+            </a>
+          </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

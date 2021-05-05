@@ -1,0 +1,26 @@
+<div class="container container-fluid" style="margin-top: 25px">
+<div class="jumbotron">
+<img src="{{ url_for('static', filename='images/RC_Logo.png') }}" alt="">
+<br><br>
+
+{% set text = chosen_value.text.split('\n') %}
+<p class="lead">{{ chosen_value.number }}</p>
+<hr>
+
+{% for line in text %}
+<p>{{ line }}</p>
+{% endfor %}
+<hr>
+
+<a class="btn-primary btn-lg" href="https://www.ritzcarlton.com/en/about/gold-standards" target="_blank" role="button">More!</a>
+</div>
+</div>
+
+<!--
+Code to run to pass the service values:
+k, v = random.choice(list(Config.RC_VALUES.items()))
+chosen_value = {
+    'number': k,
+    'text': v
+}
+-->

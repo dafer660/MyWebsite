@@ -1,0 +1,23 @@
+{% extends 'admin/base_admin.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content_title %}User Detail{% endblock %}
+
+{% block content %}
+
+    {% block messages %}
+        {{ super() }}
+    {% endblock %}
+
+    <div class="user-profile">
+        <div class="panel panel-info"
+             style="width: 500px; position: center; margin-left: auto; margin-right: auto">
+            <div class="panel-heading"><strong>User Details</strong></div>
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            <div class="panel-body" >{{ wtf.quick_form(form) }}</div>
+            <br>
+        </div>
+    </div>
+
+{% endblock %}

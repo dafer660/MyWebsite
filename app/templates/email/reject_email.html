@@ -1,0 +1,20 @@
+<p>Dear approver,</p>
+
+<p>Request {{ current_request.req_number }} has been rejected!</p>
+
+<p>Reason for rejection:</p>
+<p> >> please add this to DB to provide details, or new form for rejection. </p>
+
+<p> Please submit a new one by using this <a href="{{ url_for('main.request', _external=True) }}">LINK</a>
+
+<table>
+    <tr>
+        <td><img src="{{ url_for('static', filename='images/RC_Logo.png', _external=True) }}" alt=""></td>
+        <td>
+            <a href="https://www.ritzcarlton.com/"></a><br/>
+        </td>
+    </tr>
+</table>
+
+<p>Regards,</p>
+<p>Your IT admin</p>

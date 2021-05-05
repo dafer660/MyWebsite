@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <section class="s2">
+        <div class="main-content">
+
+            <!-- Post header -->
+            <div id="post-header" class="text-md-center page-header">
+                <h2>User Posts</h2>
+                <hr>
+            </div>
+
+            <!-- Posts -->
+            {% include "blog/models/_posts.html" %}
+
+            <div style="margin-bottom: 75px">
+                {% if posts.total >= 5  %}
+                    <!-- Pagination -->
+                    {% include "blog/models/_pagination.html" %}
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
