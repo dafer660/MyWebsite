@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <section class="s2">
+        <div class="main-content">
+
+            <div id="auth_div" class="text-center">
+
+                <form class="text-lg-center form-group-lg" action="{{ url_for_security('login') }}" method="POST" name="login_user_form">
+
+                    <img class="mb-4" src={{ url_for('static', filename='favicon/favicon.ico') }} alt="..." width="50" height="50">
+                    <h1 class="h3 mb-3 font-weight-normal">{{ _fsdomain("Login") }}</h1>
+                    {{ login_user_form.hidden_tag() }}
+
+                    <div class="text-lg-left">
+                        <div id="auth_form_divs" class="row-fluid">{{ login_user_form.email.label() }}</div>
+                        {{ login_user_form.email(id="login_email", placeholder="Email", autofocus=True, class="form-control") }}
+                        {% for error in login_user_form.email.errors %}
+                            <span style="color: #ff4d4d;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+
+                    <div style="margin: 25px"></div>
+
+                    <div class="text-lg-left">
+                        <div id="auth_form_divs" class="row-fluid">{{ login_user_form.password.label() }}</div>
+                        {{ login_user_form.password(id="login_password", placeholder="Password", autofocus=False, class="form-control") }}
+                        {% for error in login_user_form.password.errors %}
+                            <span style="color: #ff4d4d;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+
+                    <div style="margin: 25px"></div>
+
+                    <div class="checkbox mb-3" style="margin-top: 10px">
+                        <label>
+                            {{ login_user_form.remember() }} {{ login_user_form.remember.label }}
+                        </label>
+                    </div>
+
+                    <div class="text-lg-left">
+                        {{ login_user_form.csrf_token }}
+                    </div>
+
+                    <button class="btn btn-lg btn-dark btn-block mb-5" type="submit">Sign in</button>
+
+                    <div class="auth_menu nav justify-content-center">
+                        {% include "security/_menu.html" %}
+                    </div>
+
+                    <p class="mt-5 mb-3 text-body">&copy; 2021, Daniel Ferreira LLC</p>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

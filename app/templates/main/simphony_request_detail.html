@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+    <div class="simphony_requests">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        {{ wtf.quick_form(form) }}
+        <br>
+    </div>
+
+    {% assets "js_all" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+{% endblock %}
+
+
+
+
+

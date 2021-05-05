@@ -1,0 +1,15 @@
+<p>Dear approver,</p>
+<p>
+    <a href="{{ url_for('main.get_request', request=current_request.id, _external=True) }}">{{ current_request.req_number }} </a>
+    requires your approval.
+</p>
+<table>
+    <tr>
+        <td><img src="{{ url_for('static', filename='images/RC_Logo.png', _external=True) }}" alt=""></td>
+        <td>
+            <a href="https://www.ritzcarlton.com/"></a><br/>
+        </td>
+    </tr>
+</table>
+<p>Regards,</p>
+<p>Your IT admin</p>

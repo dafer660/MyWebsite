@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <section class="s2">
+        <div class="main-content">
+
+            <div id="auth_div" class="text-center">
+
+                <form class="text-lg-center form-group-lg" action="{{ url_for_security('send_confirmation') }}" method="POST" name="forgot_password_form">
+
+                    {{ send_confirmation_form.hidden_tag() }}
+
+                    <img class="mb-4" src={{ url_for('static', filename='favicon/favicon.ico') }} alt="..." width="50" height="50">
+                    <h1 class="h3 mb-3 font-weight-normal">{{ _fsdomain('Resend confirmation instructions') }}</h1>
+
+                    <div class="text-lg-left">
+                        <div id="auth_form_divs" class="row-fluid">{{ send_confirmation_form.email.label() }}</div>
+                        {{ send_confirmation_form.email(id="resend_email", placeholder="Email", autofocus=True, class="form-control") }}
+                        {% for error in send_confirmation_form.email.errors %}
+                            <span style="color: #ff4d4d;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+
+                    <div style="margin: 25px"></div>
+
+                    <button class="btn btn-lg btn-dark btn-block mb-5" type="submit">Resend Confirmation Email</button>
+
+                    <div class="nav justify-content-center">
+                        {% include "security/_menu.html" %}
+                    </div>
+
+                    <p class="mt-5 mb-3 text-body">&copy; 2021, Daniel Ferreira LLC</p>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

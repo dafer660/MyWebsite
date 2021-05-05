@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <div class="user-profile container-fluid" style="margin-top: 10px">
+        <!-- Profile header -->
+        <div id="profile_header" class="text-md-center page-header">
+            <h2>Edit Profile</h2>
+            <hr>
+        </div>
+
+        <!-- Profile panel details -->
+        <div id="profile_panel" class="col-sm-6" >
+            <div id="profile_card" class="card">
+                <div class="card-header">
+                    <strong>Edit Profile Details</strong><br>
+                </div>
+                <div class="card-img">
+                    <img src="{{ user.avatar(256) }}" class="card-img profile_image" alt="...">
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {{ form.hidden_tag() }}
+
+                        <div style="margin: 25px"></div>
+
+                        <div class="panel-body">
+                             <div id="auth_form_divs" class="row-fluid">{{ form.email.label }}</div>
+                            {{ form.email(id="profile_email", placeholder="Email", autofocus=False, class="form-control", disabled=True) }}
+                        </div>
+
+                        <div style="margin: 25px"></div>
+
+                        <div class="panel-body">
+                            <div id="auth_form_divs" class="row-fluid">{{ form.about_me.label }}</div>
+                            {{ form.about_me(cols=50, rows=5, id='about_me') }}
+                        </div>
+
+                        <div class="panel-body text-right" id="about_me_count">
+                            <small>{{ form.about_me_count.data }}</small>
+                        </div>
+
+                        <div class="panel-body" style="margin-top: 25px">
+                            {{ form.submit_edit(class="btn btn-lg btn-dark btn-block mb-5") }}
+                        </div>
+
+                        <div class="panel-body">
+                            {{ form.change_pwd(class="btn btn-lg btn-dark btn-block mb-5") }}
+                        </div>
+
+                    </form>
+                </div>
+              <div class="card-footer text-muted text-right"><strong>Last Login:</strong> {{user.last_login}}</div>
+            </div>
+
+        <div style="padding-bottom: 20px"></div>
+        </div>
+    </div>
+
+    <script>
+
+        function CountChars(textArea, countField) {
+            const tArea = document.getElementById(textArea);
+            const cField = document.getElementById(countField);
+            const MAX_CHARS = 250;
+            const TEXT = " characters remaining."
+            tArea.maxLength = 250;
+
+            const remaining = MAX_CHARS - tArea.value.length;
+            const color = remaining < MAX_CHARS * 0.1 ? 'red' : null;
+            cField.textContent = remaining + TEXT;
+            cField.style.color = color;
+
+            tArea.addEventListener('input', () => {
+                const remaining = MAX_CHARS - tArea.value.length;
+                const color = remaining < MAX_CHARS * 0.1 ? 'red' : null;
+                cField.textContent = remaining + TEXT;
+                cField.style.color = color;
+                }
+            )
+        }
+        CountChars('about_me', 'about_me_count')
+    </script>
+
+{% endblock %}

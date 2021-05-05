@@ -1,0 +1,8 @@
+venv
+migrations
+.idea
+
+config.py
+totp
+app.db
+

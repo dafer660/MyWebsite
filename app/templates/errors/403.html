@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section class="s2">
+    <div class="main-content">
+        <div class="error-container">
+            <img src="{{ url_for('static', filename='images/error/monkey.jpg') }}" alt="..." >
+            <hr>
+            <p>
+                It seems you do not have the right permission to access this page.
+                Please click <strong><a href="{{ previous }}">here</a></strong> to go back.
+            </p>
+            <hr>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,8 @@
+Dear approver,
+
+Click the link below to approve the request:
+
+{{ url_for('main.get_request', request=current_request.id, _external=True) }}
+
+Regards,
+Your IT admin

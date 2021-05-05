@@ -1,0 +1,4 @@
+<link href="{{ url_for('static', filename='css/admin.css') }}" rel="stylesheet">
+{%- for css_url in admin_view.extra_css %}
+    <link href="{{ css_url }}" rel="stylesheet">
+{% endfor -%}

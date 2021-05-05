@@ -1,0 +1,12 @@
+Dear approver,
+
+Request {{ current_request.req_number }} has been rejected!
+
+Reason for rejection:
+>> please add this to DB to provide details, or new form for rejection.
+
+Please submit a new one using the link below:
+{{ url_for('main.request') }}
+
+Regards,
+Your IT admin
