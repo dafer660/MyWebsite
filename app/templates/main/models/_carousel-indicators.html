@@ -1,9 +1,0 @@
-<ol class="carousel-indicators">
-    {%- for _loop in range(_loops + 1) %}
-        {%- if loop.index0 == 0 %}
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        {%- else %}
-            <li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}"></li>
-        {% endif %}
-    {% endfor %}
-</ol>
