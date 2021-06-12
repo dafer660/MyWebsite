@@ -134,8 +134,8 @@ def create_app(config_file=Config):
                 user_datastore.add_permissions_to_role(role=role, permissions=Config.PERMISSIONS_ADMIN)
 
         # Create admin user:
-        if not user_datastore.find_user(email="danielf18@hotmail.com"):
-            admin_user = user_datastore.create_user(email="danielf18@hotmail.com",
+        if not user_datastore.find_user(email="example@example.com"):
+            admin_user = user_datastore.create_user(email="example@example.com",
                                                     password=hash_password("toor"),
                                                     confirmed_at=datetime.utcnow())
             user_datastore.add_role_to_user(admin_user, 'admin')
